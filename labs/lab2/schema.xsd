@@ -1,0 +1,51 @@
+<?xml version = "1.0"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.com/Club" xmlns="http://www.example.com/Club">
+    <xs:element name="schema">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="beers">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="beer" type="BeerType" minOccurs="1" maxOccurs="unbounded" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="IngridientsType">
+        <xs:sequence>
+            <xs:element name="ingridient" minOccurs="0" maxOccurs="200">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CharsType">
+        <xs:sequence>
+            <xs:element name = "revolNumber" type = "xs:positiveInteger"/>
+            <xs:element name = "transparency" type = "xs:positiveInteger"/>
+            <xs:element name = "filtered" type = "xs:boolean"/>
+            <xs:element name = "nutritionalValue" type = "xs:positiveInteger"/>
+            <xs:element name = "spillMethod" type = "xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name = "BeerType">
+        <xs:sequence>
+            <xs:element name = "name" type = "xs:string"/>
+            <xs:element name = "type" type = "xs:string"/>
+            <xs:element name = "al" type = "xs:boolean"/>
+            <xs:element name = "manufacturer" type = "xs:string"/>
+	        <xs:element name = "ingridients" type = "IngridientsType"/>
+            <xs:element name = "chars" type = "CharsType"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
