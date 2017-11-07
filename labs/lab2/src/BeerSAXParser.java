@@ -12,7 +12,7 @@ public class BeerSAXParser {
         SAXHandler handler = new SAXHandler();
         parser.parse("Beer.xml", handler);
 
-        //Printing the list of employees obtained from XML
+        //Printing
         for ( Beer b : handler.beerList){
             System.out.println(b);
         }
@@ -30,6 +30,7 @@ class SAXHandler extends DefaultHandler {
     public void startElement(String uri, String localName, String qName, Attributes attributes)
             throws SAXException {
         switch(qName){
+            //Create a new object or list when the start tag is found
             case "beer":
                 b = new Beer();
                 break;
@@ -45,6 +46,7 @@ class SAXHandler extends DefaultHandler {
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
         switch(qName){
+            //Add the beer to list once end tag is found
             case "beer":
                 beerList.add(b);
                 break;
@@ -54,6 +56,7 @@ class SAXHandler extends DefaultHandler {
             case "chars":
                 b.setChars(ch);
                 break;
+            //For all other end tags the beer has to be updated.
             case "name":
                 b.setName(content);
                 break;
@@ -78,8 +81,11 @@ class SAXHandler extends DefaultHandler {
             case "nutritionalValue":
                 ch.setNutritionalValue(Integer.parseInt(content));
                 break;
-            case "spillMethod":
-                ch.setSpillMethod(content);
+            case "capacity":
+                ch.setSpillMethodCapacity(Integer.parseInt(content));
+                break;
+            case "material":
+                ch.setSpillMethodMaterial(content);
                 break;
         }
     }

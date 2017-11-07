@@ -3,7 +3,7 @@
     <beers>
         <beer>
             <name>beer1</name>
-            <type>type1</type>
+            <type>light</type>
             <al>true</al>
             <manufacturer>m1</manufacturer>
 	        <ingridients>
@@ -15,13 +15,16 @@
                 <transparency>50</transparency>
                 <filtered>false</filtered>
                 <nutritionalValue>115</nutritionalValue>
-                <spillMethod>method1</spillMethod>
+                <spillMethod>
+                    <capacity>12</capacity>
+                    <material>material1</material>
+                </spillMethod>
             </chars>
         </beer>
 
 	<beer>
             <name>beer2</name>
-            <type>type2</type>
+            <type>dark</type>
             <al>true</al>
             <manufacturer>m2</manufacturer>
             <ingridients>
@@ -33,13 +36,16 @@
                 <transparency>20</transparency>
                 <filtered>false</filtered>
                 <nutritionalValue>137</nutritionalValue>
-                <spillMethod>method2</spillMethod>
+                <spillMethod>
+                    <capacity>15</capacity>
+                    <material>material1</material>
+                </spillMethod>
             </chars>
-        </beer>
+        </beer>0
 
 	<beer>
             <name>beer3</name>
-            <type>type3</type>
+            <type>dark</type>
             <al>false</al>
             <manufacturer>m3</manufacturer>
             <ingridients>
@@ -47,11 +53,13 @@
                 <ingridient>i2</ingridient>
             </ingridients>
             <chars>
-                <revolNumber>10</revolNumber>
                 <transparency>50</transparency>
                 <filtered>false</filtered>
                 <nutritionalValue>300</nutritionalValue>
-                <spillMethod>method1</spillMethod>
+                <spillMethod>
+                    <capacity>12</capacity>
+                    <material>material1</material>
+                </spillMethod>
             </chars>
         </beer>
     </beers>

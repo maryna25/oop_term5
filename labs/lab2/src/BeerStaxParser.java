@@ -75,8 +75,11 @@ public class BeerStaxParser {
                         case "nutritionalValue":
                             ch.setNutritionalValue(Integer.parseInt(content));
                             break;
-                        case "spillMethod":
-                            ch.setSpillMethod(content);
+                        case "capacity":
+                            ch.setSpillMethodCapacity(Integer.parseInt(content));
+                            break;
+                        case "material":
+                            ch.setSpillMethodMaterial(content);
                             break;
                     }
                     break;
@@ -88,7 +91,7 @@ public class BeerStaxParser {
 
         }
 
-        //Print the employee list populated from XML
+        //Print
         for ( Beer b : beerList){
             System.out.println(b);
         }

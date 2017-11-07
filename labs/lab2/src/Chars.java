@@ -3,7 +3,8 @@ public class Chars {
     private int transparency;
     private Boolean filtered;
     private int nutritionalValue;
-    private String spillMethod;
+    private String spillMethodMaterial;
+    private int spillMethodCapacity;
 
     public int getRevolNumber() {
         return revolNumber;
@@ -21,8 +22,12 @@ public class Chars {
         return nutritionalValue;
     }
 
-    public String getSpillMethod() {
-        return spillMethod;
+    public int getSpillMethodCapacity() {
+        return spillMethodCapacity;
+    }
+
+    public String getSpillMethodMaterial() {
+        return spillMethodMaterial;
     }
 
     public void setRevolNumber(int revolNumber) {
@@ -41,7 +46,11 @@ public class Chars {
         this.nutritionalValue = nutritionalValue;
     }
 
-    public void setSpillMethod(String spillMethod) {
-        this.spillMethod = spillMethod;
+    public void setSpillMethodMaterial(String spillMethodMaterial) {
+        this.spillMethodMaterial = spillMethodMaterial;
+    }
+
+    public void setSpillMethodCapacity(int spillMethodCapacity) {
+        this.spillMethodCapacity = spillMethodCapacity;
     }
 }

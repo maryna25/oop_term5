@@ -28,20 +28,36 @@
         </xs:sequence>
     </xs:complexType>
 
+    <xs:complexType name="SpillMethodType">
+        <xs:sequence>
+            <xs:element name = "capacity" type = "xs:positiveInteger"/>
+            <xs:element name = "material" type = "xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="CharsType">
         <xs:sequence>
-            <xs:element name = "revolNumber" type = "xs:positiveInteger"/>
+            <xs:element name = "revolNumber" type = "xs:positiveInteger" minOccurs="0" maxOccurs="1" />
             <xs:element name = "transparency" type = "xs:positiveInteger"/>
             <xs:element name = "filtered" type = "xs:boolean"/>
             <xs:element name = "nutritionalValue" type = "xs:positiveInteger"/>
-            <xs:element name = "spillMethod" type = "xs:string"/>
+            <xs:element name = "spillMethod" type = "SpillMethodType"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name = "BeerType">
         <xs:sequence>
             <xs:element name = "name" type = "xs:string"/>
-            <xs:element name = "type" type = "xs:string"/>
+            <xs:element name = "type">
+            <xs:simpleType>
+                <xs:restriction base="xs:normalizedString">
+                    <xs:enumeration value="dark"/>
+                    <xs:enumeration value="light"/>
+                    <xs:enumeration value="alive"/>
+                    <xs:enumeration value="camp"/>
+                </xs:restriction>
+            </xs:simpleType>
+            </xs:element>
             <xs:element name = "al" type = "xs:boolean"/>
             <xs:element name = "manufacturer" type = "xs:string"/>
 	        <xs:element name = "ingridients" type = "IngridientsType"/>

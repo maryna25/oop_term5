@@ -8,15 +8,21 @@ import java.util.ArrayList;
 
 public class BeerDOMParser {
     public static void main(String[] args) throws Exception {
+        //Get the DOM Builder Factory
         DocumentBuilderFactory factory =
                 DocumentBuilderFactory.newInstance();
+        //Get the DOM Builder
         DocumentBuilder builder = factory.newDocumentBuilder();
+        //Load and Parse the XML document
+        //document contains the complete XML as a Tree.
         Document document = builder.parse("Beer.xml");
 
         ArrayList<Beer> beers = new ArrayList<>();
 
+        //Iterating through the nodes and extracting the data.
         NodeList beerNodeList = document.getDocumentElement().getElementsByTagName("beer");
         for (int i = 0; i < beerNodeList.getLength(); i++) {
+            //We have encountered an <beer> tag.
             Node node = beerNodeList.item(i);
             Beer b = new Beer();
             Chars ch = new Chars();
@@ -25,6 +31,7 @@ public class BeerDOMParser {
             NodeList childNodes = node.getChildNodes();
             for (int j = 0; j < childNodes.getLength(); j++) {
                 Node cNode = childNodes.item(j);
+                //Identifying the child tag of beer encountered.
                 if (cNode instanceof Element) {
                     String content = cNode.getLastChild().getTextContent().trim();
                     switch (cNode.getNodeName()) {
@@ -69,7 +76,21 @@ public class BeerDOMParser {
                                             ch.setNutritionalValue(Integer.parseInt(charsContent));
                                             break;
                                         case "spillMethod":
-                                            ch.setSpillMethod(charsContent);
+                                            NodeList spillMethodChildNodes = charsNode.getChildNodes();
+                                            for (int k = 0; k < spillMethodChildNodes.getLength(); k++) {
+                                                Node chars1Node = spillMethodChildNodes.item(k);
+                                                if (chars1Node instanceof Element) {
+                                                    String spillMethodContent = chars1Node.getLastChild().getTextContent().trim();
+                                                    switch (chars1Node.getNodeName()) {
+                                                        case "capacity":
+                                                            ch.setSpillMethodCapacity(Integer.parseInt(spillMethodContent));
+                                                            break;
+                                                        case "material":
+                                                            ch.setSpillMethodMaterial(spillMethodContent);
+                                                            break;
+                                                    }
+                                                }
+                                            }
                                             break;
                                     }
                                 }
@@ -84,6 +105,7 @@ public class BeerDOMParser {
 
         }
 
+        //Printing
         for (Beer b : beers) {
             System.out.println(b);
         }

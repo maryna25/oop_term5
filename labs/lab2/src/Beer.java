@@ -56,6 +56,6 @@ public class Beer {
         return "name:" + name + " al:" + al + " manufacturer: " + manufacturer + " ingredients: " + ing +
                 "revolNumber: " + chars.getRevolNumber() + " transparency: " + chars.getTransparency() +
                 " filtered: " + chars.getFiltered() + " nutritionalValue: " + chars.getNutritionalValue() +
-                " spillMethod: " + chars.getSpillMethod();
+                " spillMethod: " + chars.getSpillMethodCapacity() + chars.getSpillMethodMaterial();
     }
 }
