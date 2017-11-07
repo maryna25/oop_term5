@@ -45,6 +45,7 @@ public class Game extends SimpleApplication {
 
     @Override
     public void simpleInitApp() {
+        //Initialize all components
         mainNode = new Node();
 
         DirectionalLight sun = new DirectionalLight();
@@ -75,6 +76,7 @@ public class Game extends SimpleApplication {
             {
                 collided = true;
             }else{
+                //for moving ship
                 Vector3f v = calculateShVector();
                 double angle;
                 if(v.length() == 0 || shVector.length() == 0)
@@ -88,6 +90,7 @@ public class Game extends SimpleApplication {
                 ship.move(new Vector3f(shSpeed * shVector.x, 0.0f, shSpeed * shVector.z));
                 ship.rotate(new Quaternion().fromAngleAxis((float)(angle), Vector3f.UNIT_Y));
 
+                //for moving torpedo
                 Vector2f nextPoint = new Vector2f(ship.getLocalTranslation().x - torpedo.getLocalTranslation().x,
                         ship.getLocalTranslation().z - torpedo.getLocalTranslation().z);
                 Tpath.addWayPoint(new Vector3f(torpedo.getLocalTranslation().x + nextPoint.x,
@@ -96,7 +99,7 @@ public class Game extends SimpleApplication {
             }
 
         }
-        else
+        else //if torpedo and ship are collided
         {
             guiNode.detachAllChildren();
             guiFont = assetManager.loadFont("Interface/Fonts/Default.fnt");
@@ -173,15 +176,20 @@ public class Game extends SimpleApplication {
     }
 
     private Vector3f calculateShVector(){
+        //Get 2D cursor coordinates
         Vector2f cursorPos2D = inputManager.getCursorPosition().clone();
+        //Convert 2D screen coordinates to their 3D equivalent
         Vector3f cursorPos3D = cam.getWorldCoordinates(new Vector2f(cursorPos2D.x, cursorPos2D.y), 0f).clone();
+        //Aim the ray from the clicked 3D location forwards into the scene
         Vector3f direction = cam.getWorldCoordinates(new Vector2f(cursorPos2D.x, cursorPos2D.y), 1f)
                                 .subtractLocal(cursorPos3D).normalizeLocal();
+        //Collect intersections between ray and all nodes into a results list
         Ray ray = new Ray(cursorPos3D, direction);
         CollisionResults results = new CollisionResults();
         water.collideWith(ray, results);
         Vector3f v = results.getClosestCollision().getContactPoint();
         v.y = 0;
+        //Calculate vector for ship rotation
         return new Vector3f((float)(v.x / hypotenuse(v)), 0, (float)(v.z / hypotenuse(v)));
     }
 
