@@ -5,7 +5,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="beers">
-                    <xs:complexType>
+                    <xs:complexType mixed="true">
                         <xs:sequence>
                             <xs:element name="beer" type="BeerType" minOccurs="1" maxOccurs="unbounded" />
                         </xs:sequence>
@@ -49,18 +49,18 @@
         <xs:sequence>
             <xs:element name = "name" type = "xs:string"/>
             <xs:element name = "type">
-            <xs:simpleType>
-                <xs:restriction base="xs:normalizedString">
-                    <xs:enumeration value="dark"/>
-                    <xs:enumeration value="light"/>
-                    <xs:enumeration value="alive"/>
-                    <xs:enumeration value="camp"/>
-                </xs:restriction>
-            </xs:simpleType>
+                <xs:simpleType>
+                    <xs:restriction base="xs:normalizedString">
+                        <xs:enumeration value="dark"/>
+                        <xs:enumeration value="light"/>
+                        <xs:enumeration value="alive"/>
+                        <xs:enumeration value="camp"/>
+                    </xs:restriction>
+                </xs:simpleType>
             </xs:element>
             <xs:element name = "al" type = "xs:boolean"/>
             <xs:element name = "manufacturer" type = "xs:string"/>
-	        <xs:element name = "ingridients" type = "IngridientsType"/>
+            <xs:element name = "ingridients" type = "IngridientsType"/>
             <xs:element name = "chars" type = "CharsType"/>
         </xs:sequence>
     </xs:complexType>
