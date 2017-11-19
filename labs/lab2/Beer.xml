@@ -2,14 +2,13 @@
 <tns:schema xmlns:tns="http://www.example.com/Club" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.com/shema schema.xsd ">
     <beers>
         <beer>
-            <name>beer1</name>
-            <type>light</type>
+            <name id="ID-1">beer1</name>
+            <type><light>
+                <commonIngridient>12</commonIngridient>
+                <lightBeerIngridient>45</lightBeerIngridient>
+            </light></type>
             <al>true</al>
             <manufacturer>m1</manufacturer>
-	        <ingridients>
-                <ingridient>i1</ingridient>
-                <ingridient>i2</ingridient>
-            </ingridients>
             <chars>
                 <revolNumber>10</revolNumber>
                 <transparency>50</transparency>
@@ -23,14 +22,13 @@
         </beer>
 
 	<beer>
-            <name>beer2</name>
-            <type>dark</type>
+            <name id="ID-2">beer2</name>
+            <type><dark>
+                <commonIngridient>12</commonIngridient>
+                <darkBeerIngridient>45</darkBeerIngridient>
+            </dark></type>
             <al>true</al>
             <manufacturer>m2</manufacturer>
-            <ingridients>
-                <ingridient>i1</ingridient>
-                <ingridient>i2</ingridient>
-            </ingridients>
             <chars>
                 <revolNumber>30</revolNumber>
                 <transparency>20</transparency>
@@ -41,17 +39,16 @@
                     <material>material1</material>
                 </spillMethod>
             </chars>
-        </beer>0
+        </beer>
 
 	<beer>
-            <name>beer3</name>
-            <type>dark</type>
+            <name id="ID-3">beer3</name>
+            <type><dark>
+                <commonIngridient>12</commonIngridient>
+                <darkBeerIngridient>45</darkBeerIngridient>
+            </dark></type>
             <al>false</al>
             <manufacturer>m3</manufacturer>
-            <ingridients>
-                <ingridient>i1</ingridient>
-                <ingridient>i2</ingridient>
-            </ingridients>
             <chars>
                 <transparency>50</transparency>
                 <filtered>false</filtered>

@@ -11,7 +11,7 @@ public class Transform {
         Source xslt = new StreamSource(new File("transformer.xsl"));
         Transformer transformer = factory.newTransformer(xslt);
 
-        Source text = new StreamSource(new File("Beer1.xml"));
+        Source text = new StreamSource(new File("Beer.xml"));
         transformer.transform(text, new StreamResult(new File("output.html")));
     }
 }

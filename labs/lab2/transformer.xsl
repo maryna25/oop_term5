@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:tns="http://www.example.com/Club">
 
     <xsl:template match="/">
         <html>
@@ -16,7 +17,7 @@
                         <th>Transparency</th>
                         <th>Filtered</th>
                     </tr>
-                    <xsl:for-each select="beers/beer">
+                    <xsl:for-each select="tns:schema/beers/beer">
                         <tr>
                             <td><xsl:value-of select="name"/></td>
                             <td><xsl:value-of select="type"/></td>
