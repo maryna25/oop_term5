@@ -2,18 +2,23 @@ import java.util.ArrayList;
 
 public class Beer {
     private String name;
+    private String type;
     private Boolean al;
     private String manufacturer;
     private ArrayList<String> ingridients;
     private Chars chars;
     private int commonIngridient;
-    private int darkBeerIngridient;
-    private int lightBeerIngridient;
-    private int campBeerIngridient;
-    private int aliveBeerIngridient;
+    private int darkBeerIngridient = 0;
+    private int lightBeerIngridient = 0;
+    private int campBeerIngridient = 0;
+    private int aliveBeerIngridient = 0;
 
     public String getName() {
         return name;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public Boolean getAl() {
@@ -92,14 +97,24 @@ public class Beer {
         this.lightBeerIngridient = lightBeerIngridient;
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
         String ing = "";
-        for (int i = 0; i < ingridients.size(); i++) {
-            ing += ingridients.get(i) + " ";
-        }
-        return "name:" + name + " al:" + al + " manufacturer: " + manufacturer + " ingredients: " + ing +
-                "revolNumber: " + chars.getRevolNumber() + " transparency: " + chars.getTransparency() +
+        ing += "commonINgridient - " + commonIngridient;
+        if (darkBeerIngridient > 0)
+            ing += " darkINgridient - " + darkBeerIngridient;
+        if (lightBeerIngridient > 0)
+            ing += " lightINgridient - " + lightBeerIngridient;
+        if (campBeerIngridient > 0)
+            ing += " campINgridient - " + campBeerIngridient;
+        if (aliveBeerIngridient > 0)
+            ing += " aliveINgridient - " + aliveBeerIngridient;
+        return "name:" + name + " type:" + type + " al:" + al + " manufacturer: " + manufacturer + " ingredients: " + ing +
+                " revolNumber: " + chars.getRevolNumber() + " transparency: " + chars.getTransparency() +
                 " filtered: " + chars.getFiltered() + " nutritionalValue: " + chars.getNutritionalValue() +
                 " spillMethod: " + chars.getSpillMethodCapacity() + chars.getSpillMethodMaterial();
     }

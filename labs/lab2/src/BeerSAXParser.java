@@ -34,9 +34,6 @@ class SAXHandler extends DefaultHandler {
             case "beer":
                 b = new Beer();
                 break;
-            case "ingridients":
-                ingredients = new ArrayList<>();
-                break;
             case "chars":
                 ch = new Chars();
                 break;
@@ -50,15 +47,39 @@ class SAXHandler extends DefaultHandler {
             case "beer":
                 beerList.add(b);
                 break;
-            case "ingridients":
-                b.setIngridients(ingredients);
-                break;
             case "chars":
                 b.setChars(ch);
                 break;
             //For all other end tags the beer has to be updated.
             case "name":
                 b.setName(content);
+                break;
+            case "light":
+                b.setType("light");
+                break;
+            case "dark":
+                b.setType("dark");
+                break;
+            case "camp":
+                b.setType("camp");
+                break;
+            case "alive":
+                b.setType("alive");
+                break;
+            case "commonIngridient":
+                b.setCommonIngridient(Integer.parseInt(content));
+                break;
+            case "darkBeerIngridient":
+                b.setDarkBeerIngridient(Integer.parseInt(content));
+                break;
+            case "lightBeerIngridient":
+                b.setLightBeerIngridient(Integer.parseInt(content));
+                break;
+            case "campBeerIngridient":
+                b.setCampBeerIngridient(Integer.parseInt(content));
+                break;
+            case "aliveBeerIngridient":
+                b.setAliveBeerIngridient(Integer.parseInt(content));
                 break;
             case "al":
                 b.setAl(Boolean.parseBoolean(content));
