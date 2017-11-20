@@ -194,11 +194,17 @@ public class Game extends SimpleApplication {
     }
 
     private boolean areCollided(){
-        if((torpedo.getLocalTranslation().x < ship.getLocalTranslation().x + 5) &&
-           (torpedo.getLocalTranslation().x > ship.getLocalTranslation().x - 5) &&
-           (torpedo.getLocalTranslation().z < ship.getLocalTranslation().z + 5) &&
-           (torpedo.getLocalTranslation().z > ship.getLocalTranslation().z - 5))
-                return true;
-        return false;
+        CollisionResults results = new CollisionResults();
+        torpedo.collideWith(ship.getWorldBound(), results);
+        if (results.size() > 0)
+            return true;
+        else
+            return false;
+//        if((torpedo.getLocalTranslation().x < ship.getLocalTranslation().x + 5) &&
+//           (torpedo.getLocalTranslation().x > ship.getLocalTranslation().x - 5) &&
+//           (torpedo.getLocalTranslation().z < ship.getLocalTranslation().z + 5) &&
+//           (torpedo.getLocalTranslation().z > ship.getLocalTranslation().z - 5))
+//                return true;
+//        return false;
     }
 }
