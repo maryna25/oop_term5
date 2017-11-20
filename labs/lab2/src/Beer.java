@@ -6,6 +6,11 @@ public class Beer {
     private String manufacturer;
     private ArrayList<String> ingridients;
     private Chars chars;
+    private int commonIngridient;
+    private int darkBeerIngridient;
+    private int lightBeerIngridient;
+    private int campBeerIngridient;
+    private int aliveBeerIngridient;
 
     public String getName() {
         return name;
@@ -27,6 +32,26 @@ public class Beer {
         return chars;
     }
 
+    public int getCommonIngridient() {
+        return commonIngridient;
+    }
+
+    public int getDarkBeerIngridient() {
+        return darkBeerIngridient;
+    }
+
+    public int getAliveBeerIngridient() {
+        return aliveBeerIngridient;
+    }
+
+    public int getLightBeerIngridient() {
+        return lightBeerIngridient;
+    }
+
+    public int getCampBeerIngridient() {
+        return campBeerIngridient;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -45,6 +70,26 @@ public class Beer {
 
     public void setChars(Chars chars) {
         this.chars = chars;
+    }
+
+    public void setCommonIngridient(int commonIngridient) {
+        this.commonIngridient = commonIngridient;
+    }
+
+    public void setCampBeerIngridient(int campBeerIngridient) {
+        this.campBeerIngridient = campBeerIngridient;
+    }
+
+    public void setAliveBeerIngridient(int aliveBeerIngridient) {
+        this.aliveBeerIngridient = aliveBeerIngridient;
+    }
+
+    public void setDarkBeerIngridient(int darkBeerIngridient) {
+        this.darkBeerIngridient = darkBeerIngridient;
+    }
+
+    public void setLightBeerIngridient(int lightBeerIngridient) {
+        this.lightBeerIngridient = lightBeerIngridient;
     }
 
     @Override
