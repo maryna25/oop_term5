@@ -28,6 +28,9 @@ public class Game extends SimpleApplication {
     protected Spatial torpedo;
     protected Spatial ship;
 
+    private Boolean moveShip = false;
+    private Vector2f prevMousePos = new Vector2f(0.0f,0.0f);
+
     private float shSpeed = 2f;
     private float tSpeed = 2f;
 
@@ -86,8 +89,8 @@ public class Game extends SimpleApplication {
                 if(Double.isNaN(angle))
                     angle = 0;
                 shVector.set(v);
-
-                ship.move(new Vector3f(shSpeed * shVector.x, 0.0f, shSpeed * shVector.z));
+                if (moveShip)
+                    ship.move(new Vector3f(shSpeed * shVector.x, 0.0f, shSpeed * shVector.z));
                 ship.rotate(new Quaternion().fromAngleAxis((float)(angle), Vector3f.UNIT_Y));
 
                 //for moving torpedo
@@ -189,6 +192,13 @@ public class Game extends SimpleApplication {
         water.collideWith(ray, results);
         Vector3f v = results.getClosestCollision().getContactPoint();
         v.y = 0;
+
+        if(v.x == prevMousePos.x && v.z == prevMousePos.y)
+            moveShip = false;
+        else moveShip = true;
+
+        prevMousePos.x = v.x;
+        prevMousePos.y = v.z;
         //Calculate vector for ship rotation
         return new Vector3f((float)(v.x / hypotenuse(v)), 0, (float)(v.z / hypotenuse(v)));
     }
