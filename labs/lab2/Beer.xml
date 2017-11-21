@@ -3,10 +3,12 @@
     <beers>
         <beer>
             <name id="ID-1">beer1</name>
-            <type><light>
-                <commonIngridient>12</commonIngridient>
-                <lightBeerIngridient>45</lightBeerIngridient>
-            </light></type>
+            <type>
+                <light>
+                    <commonIngridient>12</commonIngridient>
+                    <lightBeerIngridient>45</lightBeerIngridient>
+                </light>
+            </type>
             <al>true</al>
             <manufacturer>m1</manufacturer>
             <chars>
@@ -23,10 +25,12 @@
 
 	<beer>
             <name id="ID-2">beer2</name>
-            <type><dark>
-                <commonIngridient>12</commonIngridient>
-                <darkBeerIngridient>45</darkBeerIngridient>
-            </dark></type>
+            <type>
+                <dark>
+                    <commonIngridient>12</commonIngridient>
+                    <darkBeerIngridient>45</darkBeerIngridient>
+                </dark>
+            </type>
             <al>true</al>
             <manufacturer>m2</manufacturer>
             <chars>
@@ -43,10 +47,12 @@
 
 	<beer>
             <name id="ID-3">beer3</name>
-            <type><dark>
-                <commonIngridient>12</commonIngridient>
-                <darkBeerIngridient>45</darkBeerIngridient>
-            </dark></type>
+            <type>
+                <dark>
+                    <commonIngridient>12</commonIngridient>
+                    <darkBeerIngridient>45</darkBeerIngridient>
+                </dark>
+            </type>
             <al>false</al>
             <manufacturer>m3</manufacturer>
             <chars>

@@ -44,14 +44,46 @@ public class BeerDOMParser {
                         case "manufacturer":
                             b.setManufacturer(content);
                             break;
-                        case "ingridients":
-                            NodeList ingredientsChildNodes = cNode.getChildNodes();
-                            for (int l = 0; l < ingredientsChildNodes.getLength(); l++) {
-                                Node ingredientsNode = ingredientsChildNodes.item(l);
-                                if (ingredientsNode instanceof Element) {
-                                    String ingContent = ingredientsNode.getLastChild().getTextContent().trim();
-                                    if (ingredientsNode.getNodeName() == "ingridient"){
-                                        ingredients.add(ingContent);
+                        case "type":
+                            NodeList typeChildNodes = cNode.getChildNodes();
+                            for (int l = 0; l < typeChildNodes.getLength(); l++) {
+                                Node typeNode = typeChildNodes.item(l);
+                                if (typeNode instanceof Element) {
+                                    switch (typeNode.getNodeName()) {
+                                        case "light":
+                                            b.setType("light");
+                                            break;
+                                        case "dark":
+                                            b.setType("dark");
+                                            break;
+                                        case "camp":
+                                            b.setType("camp");
+                                            break;
+                                        case "alive":
+                                            b.setType("alive");
+                                            break;
+                                    }
+                                    NodeList ingridientsChildNodes = typeNode.getChildNodes();
+                                    for (int r = 0; r < ingridientsChildNodes.getLength(); r++) {
+                                        Node ingNode = ingridientsChildNodes.item(r);
+                                        if (ingNode instanceof Element) {
+                                            String ingContent = ingNode.getLastChild().getTextContent().trim();
+                                            if (ingNode.getNodeName() == "commonIngridient"){
+                                                b.setCommonIngridient(Integer.parseInt(ingContent));
+                                            }
+                                            else if (ingNode.getNodeName() == "lightBeerIngridient"){
+                                                b.setLightBeerIngridient(Integer.parseInt(ingContent));
+                                            }
+                                            else if (ingNode.getNodeName() == "darkBeerIngridient"){
+                                                b.setDarkBeerIngridient(Integer.parseInt(ingContent));
+                                            }
+                                            else if (ingNode.getNodeName() == "campBeerIngridient"){
+                                                b.setCampBeerIngridient(Integer.parseInt(ingContent));
+                                            }
+                                            else if (ingNode.getNodeName() == "aliveBeerIngridient"){
+                                                b.setAliveBeerIngridient(Integer.parseInt(ingContent));
+                                            }
+                                        }
                                     }
                                 }
                             }
