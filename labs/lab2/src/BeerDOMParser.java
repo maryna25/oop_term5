@@ -25,9 +25,7 @@ public class BeerDOMParser {
             //We have encountered an <beer> tag.
             Node node = beerNodeList.item(i);
             Beer b = new Beer();
-            Chars ch = new Chars();
-            ArrayList<String> ingredients = new ArrayList<>();
-
+            Chars ch = new Chars("unknown");
             NodeList childNodes = node.getChildNodes();
             for (int j = 0; j < childNodes.getLength(); j++) {
                 Node cNode = childNodes.item(j);
@@ -68,23 +66,27 @@ public class BeerDOMParser {
                                         Node ingNode = ingridientsChildNodes.item(r);
                                         if (ingNode instanceof Element) {
                                             String ingContent = ingNode.getLastChild().getTextContent().trim();
-                                            if (ingNode.getNodeName() == "commonIngridient"){
-                                                b.setCommonIngridient(Integer.parseInt(ingContent));
+                                            if (ingNode.getNodeName() == "water"){
+                                                b.setWater(Integer.parseInt(ingContent));
                                             }
-                                            else if (ingNode.getNodeName() == "lightBeerIngridient"){
-                                                b.setLightBeerIngridient(Integer.parseInt(ingContent));
+                                            else if (ingNode.getNodeName() == "malt"){
+                                                b.setMalt(Integer.parseInt(ingContent));
                                             }
-                                            else if (ingNode.getNodeName() == "darkBeerIngridient"){
-                                                b.setDarkBeerIngridient(Integer.parseInt(ingContent));
+                                            else if (ingNode.getNodeName() == "hop"){
+                                                b.setHop(Integer.parseInt(ingContent));
                                             }
-                                            else if (ingNode.getNodeName() == "campBeerIngridient"){
-                                                b.setCampBeerIngridient(Integer.parseInt(ingContent));
+                                            else if (ingNode.getNodeName() == "yeast"){
+                                                b.setYeast(Integer.parseInt(ingContent));
                                             }
-                                            else if (ingNode.getNodeName() == "aliveBeerIngridient"){
-                                                b.setAliveBeerIngridient(Integer.parseInt(ingContent));
+                                            else if (ingNode.getNodeName() == "sugar"){
+                                                b.setSugar(Integer.parseInt(ingContent));
+                                            }
+                                            else if (ingNode.getNodeName() == "flour"){
+                                                b.setFlour(Integer.parseInt(ingContent));
                                             }
                                             else if (ingNode.getNodeName() == "chars") {
                                                 NodeList charsChildNodes = ingNode.getChildNodes();
+                                                ch = new Chars(b.getType());
                                                 for (int s = 0; s < charsChildNodes.getLength(); s++) {
                                                     Node charsNode = charsChildNodes.item(s);
                                                     if (charsNode instanceof Element) {
@@ -130,7 +132,6 @@ public class BeerDOMParser {
                             break;
                     }
                 }
-                b.setIngridients(ingredients);
                 b.setChars(ch);
             }
             beers.add(b);

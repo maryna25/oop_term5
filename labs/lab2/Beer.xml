@@ -5,11 +5,14 @@
             <name id="ID-1">beer1</name>
             <type>
                 <light>
-                    <commonIngridient>12</commonIngridient>
-                    <lightBeerIngridient>45</lightBeerIngridient>
+                    <water>1</water>
+                    <malt>300</malt>
+                    <hop>25</hop>
+                    <yeast>9</yeast>
+                    <sugar>8</sugar>
                     <chars>
                         <revolNumber>10</revolNumber>
-                        <transparency>50</transparency>
+                        <transparency>10</transparency>
                         <filtered>false</filtered>
                         <nutritionalValue>115</nutritionalValue>
                         <spillMethod>
@@ -27,8 +30,11 @@
             <name id="ID-2">beer2</name>
             <type>
                 <dark>
-                    <commonIngridient>10</commonIngridient>
-                    <darkBeerIngridient>45</darkBeerIngridient>
+                    <water>1</water>
+                    <malt>100</malt>
+                    <flour>80</flour>
+                    <hop>20</hop>
+                    <yeast>7</yeast>
                     <chars>
                         <revolNumber>10</revolNumber>
                         <transparency>20</transparency>
@@ -49,10 +55,14 @@
             <name id="ID-3">beer3</name>
             <type>
                 <dark>
-                    <commonIngridient>15</commonIngridient>
-                    <darkBeerIngridient>45</darkBeerIngridient>
+                    <water>2</water>
+                    <malt>150</malt>
+                    <flour>80</flour>
+                    <hop>20</hop>
+                    <yeast>7</yeast>
                     <chars>
-                        <transparency>50</transparency>
+                        <revolNumber>10</revolNumber>
+                        <transparency>20</transparency>
                         <filtered>false</filtered>
                         <nutritionalValue>300</nutritionalValue>
                         <spillMethod>

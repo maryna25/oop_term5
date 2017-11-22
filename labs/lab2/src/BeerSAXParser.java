@@ -36,7 +36,19 @@ class SAXHandler extends DefaultHandler {
                 b = new Beer();
                 break;
             case "chars":
-                ch = new Chars();
+                ch = new Chars(b.getType());
+                break;
+            case "light":
+                b.setType("light");
+                break;
+            case "dark":
+                b.setType("dark");
+                break;
+            case "camp":
+                b.setType("camp");
+                break;
+            case "alive":
+                b.setType("alive");
                 break;
         }
     }
@@ -55,32 +67,23 @@ class SAXHandler extends DefaultHandler {
             case "name":
                 b.setName(content);
                 break;
-            case "light":
-                b.setType("light");
+            case "water":
+                b.setWater(Integer.parseInt(content));
                 break;
-            case "dark":
-                b.setType("dark");
+            case "hop":
+                b.setHop(Integer.parseInt(content));
                 break;
-            case "camp":
-                b.setType("camp");
+            case "malt":
+                b.setMalt(Integer.parseInt(content));
                 break;
-            case "alive":
-                b.setType("alive");
+            case "yeast":
+                b.setYeast(Integer.parseInt(content));
                 break;
-            case "commonIngridient":
-                b.setCommonIngridient(Integer.parseInt(content));
+            case "sugar":
+                b.setSugar(Integer.parseInt(content));
                 break;
-            case "darkBeerIngridient":
-                b.setDarkBeerIngridient(Integer.parseInt(content));
-                break;
-            case "lightBeerIngridient":
-                b.setLightBeerIngridient(Integer.parseInt(content));
-                break;
-            case "campBeerIngridient":
-                b.setCampBeerIngridient(Integer.parseInt(content));
-                break;
-            case "aliveBeerIngridient":
-                b.setAliveBeerIngridient(Integer.parseInt(content));
+            case "flour":
+                b.setFlour(Integer.parseInt(content));
                 break;
             case "al":
                 b.setAl(Boolean.parseBoolean(content));

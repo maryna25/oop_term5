@@ -29,7 +29,19 @@ public class BeerStaxParser {
                         beerList = new ArrayList<>();
                     }
                     if("chars".equals(reader.getLocalName())) {
-                        ch = new Chars();
+                        ch = new Chars(currentBeer.getType());
+                    }
+                    if("light".equals(reader.getLocalName())) {
+                        currentBeer.setType("light");
+                    }
+                    if("dark".equals(reader.getLocalName())) {
+                        currentBeer.setType("dark");
+                    }
+                    if("camp".equals(reader.getLocalName())) {
+                        currentBeer.setType("camp");
+                    }
+                    if("alive".equals(reader.getLocalName())) {
+                        currentBeer.setType("alive");
                     }
                     break;
 
@@ -60,20 +72,23 @@ public class BeerStaxParser {
                         case "alive":
                             currentBeer.setType("alive");
                             break;
-                        case "commonIngridient":
-                            currentBeer.setCommonIngridient(Integer.parseInt(content));
+                        case "water":
+                            currentBeer.setWater(Integer.parseInt(content));
                             break;
-                        case "darkBeerIngridient":
-                            currentBeer.setDarkBeerIngridient(Integer.parseInt(content));
+                        case "hop":
+                            currentBeer.setHop(Integer.parseInt(content));
                             break;
-                        case "lightBeerIngridient":
-                            currentBeer.setLightBeerIngridient(Integer.parseInt(content));
+                        case "malt":
+                            currentBeer.setMalt(Integer.parseInt(content));
                             break;
-                        case "campBeerIngridient":
-                            currentBeer.setCampBeerIngridient(Integer.parseInt(content));
+                        case "yeast":
+                            currentBeer.setYeast(Integer.parseInt(content));
                             break;
-                        case "aliveBeerIngridient":
-                            currentBeer.setAliveBeerIngridient(Integer.parseInt(content));
+                        case "sugar":
+                            currentBeer.setSugar(Integer.parseInt(content));
+                            break;
+                        case "flour":
+                            currentBeer.setFlour(Integer.parseInt(content));
                             break;
                         case "al":
                             currentBeer.setAl(Boolean.parseBoolean(content));

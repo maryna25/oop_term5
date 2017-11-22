@@ -18,32 +18,176 @@
 
     <xs:complexType name="darkBeerIngridientsType">
         <xs:sequence>
-            <xs:element name = "commonIngridient" type = "xs:positiveInteger"/>
-            <xs:element name = "darkBeerIngridient" type = "xs:positiveInteger"/>
+            <xs:element name = "water">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "malt">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="100"/>
+                        <xs:maxInclusive value="200"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "flour">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="50"/>
+                        <xs:maxInclusive value="150"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "hop">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="10"/>
+                        <xs:maxInclusive value="20"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "yeast">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="5"/>
+                        <xs:maxInclusive value="10"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name = "chars" type = "darkCharsType"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="lightBeerIngridientsType">
         <xs:sequence>
-            <xs:element name = "commonIngridient" type = "xs:positiveInteger"/>
-            <xs:element name = "lightBeerIngridient" type = "xs:positiveInteger"/>
+            <xs:element name = "water">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "malt">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="250"/>
+                        <xs:maxInclusive value="500"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "hop">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="20"/>
+                        <xs:maxInclusive value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "yeast">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="7"/>
+                        <xs:maxInclusive value="10"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "sugar">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="7"/>
+                        <xs:maxInclusive value="10"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name = "chars" type = "lightCharsType"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="campBeerIngridientsType">
         <xs:sequence>
-            <xs:element name = "commonIngridient" type = "xs:positiveInteger"/>
-            <xs:element name = "campBeerIngridient" type = "xs:positiveInteger"/>
+            <xs:element name = "water">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "malt">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="100"/>
+                        <xs:maxInclusive value="500"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "hop">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="20"/>
+                        <xs:maxInclusive value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "yeast">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="7"/>
+                        <xs:maxInclusive value="10"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "sugar">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="7"/>
+                        <xs:maxInclusive value="10"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name = "chars" type = "campCharsType"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="aliveBeerIngridientsType">
         <xs:sequence>
-            <xs:element name = "commonIngridient" type = "xs:positiveInteger"/>
-            <xs:element name = "aliveBeerIngridient" type = "xs:positiveInteger"/>
+            <xs:element name = "water">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="1"/>
+                        <xs:maxInclusive value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "malt">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="250"/>
+                        <xs:maxInclusive value="500"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "hop">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="20"/>
+                        <xs:maxInclusive value="50"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "yeast">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="7"/>
+                        <xs:maxInclusive value="10"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name = "chars" type = "aliveCharsType"/>
         </xs:sequence>
     </xs:complexType>
@@ -51,7 +195,15 @@
     <xs:complexType name="SpillMethodType">
         <xs:sequence>
             <xs:element name = "capacity" type = "xs:positiveInteger"/>
-            <xs:element name = "material" type = "xs:string"/>
+            <xs:element name = "material">
+                <xs:simpleType>
+                     <xs:restriction base="xs:string">
+                        <xs:enumeration value="material1"/>
+                        <xs:enumeration value="material2"/>
+                        <xs:enumeration value="material3"/>
+                     </xs:restriction>
+                 </xs:simpleType>
+            </xs:element>
         </xs:sequence>
     </xs:complexType>
 
@@ -65,7 +217,14 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element name = "transparency" type = "xs:positiveInteger"/>
+            <xs:element name = "transparency">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="5"/>
+                        <xs:maxInclusive value="20"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name = "filtered" type = "xs:boolean"/>
             <xs:element name = "nutritionalValue" type = "xs:positiveInteger"/>
             <xs:element name = "spillMethod" type = "SpillMethodType"/>
@@ -74,8 +233,22 @@
 
     <xs:complexType name="lightCharsType">
         <xs:sequence>
-            <xs:element name = "revolNumber" type = "xs:positiveInteger" minOccurs="0" maxOccurs="1" />
-            <xs:element name = "transparency" type = "xs:positiveInteger"/>
+            <xs:element name = "revolNumber" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="10"/>
+                        <xs:maxInclusive value="15"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "transparency">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="5"/>
+                        <xs:maxInclusive value="20"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name = "filtered" type = "xs:boolean"/>
             <xs:element name = "nutritionalValue" type = "xs:positiveInteger"/>
             <xs:element name = "spillMethod" type = "SpillMethodType"/>
@@ -84,8 +257,22 @@
 
     <xs:complexType name="campCharsType">
         <xs:sequence>
-            <xs:element name = "revolNumber" type = "xs:positiveInteger" minOccurs="0" maxOccurs="1" />
-            <xs:element name = "transparency" type = "xs:positiveInteger"/>
+            <xs:element name = "revolNumber" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="5"/>
+                        <xs:maxInclusive value="15"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "transparency">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="5"/>
+                        <xs:maxInclusive value="20"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name = "filtered" type = "xs:boolean"/>
             <xs:element name = "nutritionalValue" type = "xs:positiveInteger"/>
             <xs:element name = "spillMethod" type = "SpillMethodType"/>
@@ -94,8 +281,22 @@
 
     <xs:complexType name="aliveCharsType">
         <xs:sequence>
-            <xs:element name = "revolNumber" type = "xs:positiveInteger" minOccurs="0" maxOccurs="1" />
-            <xs:element name = "transparency" type = "xs:positiveInteger"/>
+            <xs:element name = "revolNumber" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="4"/>
+                        <xs:maxInclusive value="15"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name = "transparency">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="5"/>
+                        <xs:maxInclusive value="20"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name = "filtered" type = "xs:boolean"/>
             <xs:element name = "nutritionalValue" type = "xs:positiveInteger"/>
             <xs:element name = "spillMethod" type = "SpillMethodType"/>

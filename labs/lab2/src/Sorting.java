@@ -5,6 +5,6 @@ public class Sorting implements Comparator {
     public int compare(Object o1, Object o2) {
         Beer b1 = (Beer) o1;
         Beer b2 = (Beer) o2;
-        return  b1.getCommonIngridient().compareTo(b2.getCommonIngridient());
+        return  b1.getWater().compareTo(b2.getWater());
     }
 }

@@ -5,6 +5,11 @@ public class Chars {
     private int nutritionalValue;
     private String spillMethodMaterial;
     private int spillMethodCapacity;
+    private String beerType;
+
+    public Chars(String type){
+        this.beerType = type;
+    }
 
     public int getRevolNumber() {
         return revolNumber;
@@ -31,11 +36,19 @@ public class Chars {
     }
 
     public void setRevolNumber(int revolNumber) {
-        this.revolNumber = revolNumber;
+        if (this.beerType == "light" && revolNumber >= 10 && revolNumber <= 15)
+            this.revolNumber = revolNumber;
+        else if (this.beerType == "dark" && revolNumber >= 10 && revolNumber <= 20)
+            this.revolNumber = revolNumber;
+        else if (this.beerType == "alive" && revolNumber >= 4 && revolNumber <= 15)
+            this.revolNumber = revolNumber;
+        else if (this.beerType == "camp" && revolNumber >= 5 && revolNumber <= 15)
+            this.revolNumber = revolNumber;
     }
 
     public void setTransparency(int transparency) {
-        this.transparency = transparency;
+        if (transparency >= 5 && transparency <= 20)
+            this.transparency = transparency;
     }
 
     public void setFiltered(Boolean filtered) {
@@ -47,7 +60,8 @@ public class Chars {
     }
 
     public void setSpillMethodMaterial(String spillMethodMaterial) {
-        this.spillMethodMaterial = spillMethodMaterial;
+        if (spillMethodMaterial == "method1" || spillMethodMaterial == "method2" || spillMethodMaterial == "method3")
+            this.spillMethodMaterial = spillMethodMaterial;
     }
 
     public void setSpillMethodCapacity(int spillMethodCapacity) {

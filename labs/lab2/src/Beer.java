@@ -1,17 +1,15 @@
-import java.util.ArrayList;
-
 public class Beer {
     private String name;
     private String type;
     private Boolean al;
     private String manufacturer;
-    private ArrayList<String> ingridients;
     private Chars chars;
-    private Integer commonIngridient;
-    private int darkBeerIngridient = 0;
-    private int lightBeerIngridient = 0;
-    private int campBeerIngridient = 0;
-    private int aliveBeerIngridient = 0;
+    private Integer water = 0;
+    private int malt = 0;
+    private int hop = 0;
+    private int yeast = 0;
+    private int sugar = 0;
+    private int flour = 0;
 
     public String getName() {
         return name;
@@ -29,32 +27,32 @@ public class Beer {
         return manufacturer;
     }
 
-    public ArrayList<String> getIngridients() {
-        return ingridients;
-    }
-
     public Chars getChars() {
         return chars;
     }
 
-    public Integer getCommonIngridient() {
-        return commonIngridient;
+    public int getHop() {
+        return hop;
     }
 
-    public int getDarkBeerIngridient() {
-        return darkBeerIngridient;
+    public int getMalt() {
+        return malt;
     }
 
-    public int getAliveBeerIngridient() {
-        return aliveBeerIngridient;
+    public Integer getWater() {
+        return water;
     }
 
-    public int getLightBeerIngridient() {
-        return lightBeerIngridient;
+    public int getSugar() {
+        return sugar;
     }
 
-    public int getCampBeerIngridient() {
-        return campBeerIngridient;
+    public int getYeast() {
+        return yeast;
+    }
+
+    public int getFlour() {
+        return flour;
     }
 
     public void setName(String name) {
@@ -69,50 +67,64 @@ public class Beer {
         this.manufacturer = manufacturer;
     }
 
-    public void setIngridients(ArrayList<String> ingridients) {
-        this.ingridients = ingridients;
-    }
-
     public void setChars(Chars chars) {
         this.chars = chars;
-    }
-
-    public void setCommonIngridient(int commonIngridient) {
-        this.commonIngridient = commonIngridient;
-    }
-
-    public void setCampBeerIngridient(int campBeerIngridient) {
-        this.campBeerIngridient = campBeerIngridient;
-    }
-
-    public void setAliveBeerIngridient(int aliveBeerIngridient) {
-        this.aliveBeerIngridient = aliveBeerIngridient;
-    }
-
-    public void setDarkBeerIngridient(int darkBeerIngridient) {
-        this.darkBeerIngridient = darkBeerIngridient;
-    }
-
-    public void setLightBeerIngridient(int lightBeerIngridient) {
-        this.lightBeerIngridient = lightBeerIngridient;
     }
 
     public void setType(String type) {
         this.type = type;
     }
 
+    public void setHop(int hop) {
+        if ((this.type == "light" || this.type == "camp" || this.type == "alive") && hop >= 20 && hop <= 50)
+            this.hop = hop;
+        else if (this.type == "dark" && hop >= 10 && hop <= 20)
+            this.hop = hop;
+    }
+
+    public void setMalt(int malt) {
+        if ((this.type == "light" || this.type == "alive") && malt >= 250 && malt <= 500)
+            this.malt = malt;
+        else if (this.type == "dark" && malt >= 100 && malt <= 200)
+            this.malt = malt;
+        else if (this.type == "camp" && malt >= 100 && malt <= 500)
+            this.malt = malt;
+    }
+
+    public void setSugar(int sugar) {
+        if ((this.type == "light" || this.type == "camp") && sugar >= 7 && sugar <= 10)
+            this.sugar = sugar;
+    }
+
+    public void setWater(Integer water) {
+        if (water >= 1 && water <= 2)
+            this.water = water;
+    }
+
+    public void setYeast(int yeast) {
+        if ((this.type == "light" || this.type == "camp" || this.type == "alive") && yeast >= 7 && yeast <= 10)
+            this.yeast = yeast;
+        else if (this.type == "dark" && yeast >= 5 && yeast <= 10)
+            this.yeast = yeast;
+    }
+
+    public void setFlour(int flour) {
+        if (this.type == "dark" && flour >= 50 && flour <= 150)
+            this.flour = flour;
+    }
+
     @Override
     public String toString() {
         String ing = "";
-        ing += "commonINgridient - " + commonIngridient;
-        if (darkBeerIngridient > 0)
-            ing += " darkINgridient - " + darkBeerIngridient;
-        if (lightBeerIngridient > 0)
-            ing += " lightINgridient - " + lightBeerIngridient;
-        if (campBeerIngridient > 0)
-            ing += " campINgridient - " + campBeerIngridient;
-        if (aliveBeerIngridient > 0)
-            ing += " aliveINgridient - " + aliveBeerIngridient;
+        ing += "water - " + water;
+        if (malt > 0)
+            ing += " malt - " + malt;
+        if (hop > 0)
+            ing += " hop - " + hop;
+        if (flour > 0)
+            ing += " flour - " + flour;
+        if (sugar > 0)
+            ing += " sugar - " + sugar;
         return "name:" + name + " type:" + type + " al:" + al + " manufacturer: " + manufacturer + " ingredients: " + ing +
                 " revolNumber: " + chars.getRevolNumber() + " transparency: " + chars.getTransparency() +
                 " filtered: " + chars.getFiltered() + " nutritionalValue: " + chars.getNutritionalValue() +
