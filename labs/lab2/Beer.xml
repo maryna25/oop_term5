@@ -7,20 +7,20 @@
                 <light>
                     <commonIngridient>12</commonIngridient>
                     <lightBeerIngridient>45</lightBeerIngridient>
+                    <chars>
+                        <revolNumber>10</revolNumber>
+                        <transparency>50</transparency>
+                        <filtered>false</filtered>
+                        <nutritionalValue>115</nutritionalValue>
+                        <spillMethod>
+                            <capacity>12</capacity>
+                            <material>material1</material>
+                        </spillMethod>
+                    </chars>
                 </light>
             </type>
             <al>true</al>
             <manufacturer>m1</manufacturer>
-            <chars>
-                <revolNumber>10</revolNumber>
-                <transparency>50</transparency>
-                <filtered>false</filtered>
-                <nutritionalValue>115</nutritionalValue>
-                <spillMethod>
-                    <capacity>12</capacity>
-                    <material>material1</material>
-                </spillMethod>
-            </chars>
         </beer>
 
 	<beer>
@@ -29,20 +29,20 @@
                 <dark>
                     <commonIngridient>12</commonIngridient>
                     <darkBeerIngridient>45</darkBeerIngridient>
+                    <chars>
+                        <revolNumber>30</revolNumber>
+                        <transparency>20</transparency>
+                        <filtered>false</filtered>
+                        <nutritionalValue>137</nutritionalValue>
+                        <spillMethod>
+                            <capacity>15</capacity>
+                            <material>material1</material>
+                        </spillMethod>
+                    </chars>
                 </dark>
             </type>
             <al>true</al>
             <manufacturer>m2</manufacturer>
-            <chars>
-                <revolNumber>30</revolNumber>
-                <transparency>20</transparency>
-                <filtered>false</filtered>
-                <nutritionalValue>137</nutritionalValue>
-                <spillMethod>
-                    <capacity>15</capacity>
-                    <material>material1</material>
-                </spillMethod>
-            </chars>
         </beer>
 
 	<beer>
@@ -51,19 +51,19 @@
                 <dark>
                     <commonIngridient>12</commonIngridient>
                     <darkBeerIngridient>45</darkBeerIngridient>
+                    <chars>
+                        <transparency>50</transparency>
+                        <filtered>false</filtered>
+                        <nutritionalValue>300</nutritionalValue>
+                        <spillMethod>
+                            <capacity>12</capacity>
+                            <material>material1</material>
+                        </spillMethod>
+                    </chars>
                 </dark>
             </type>
             <al>false</al>
             <manufacturer>m3</manufacturer>
-            <chars>
-                <transparency>50</transparency>
-                <filtered>false</filtered>
-                <nutritionalValue>300</nutritionalValue>
-                <spillMethod>
-                    <capacity>12</capacity>
-                    <material>material1</material>
-                </spillMethod>
-            </chars>
         </beer>
     </beers>
 </tns:schema>

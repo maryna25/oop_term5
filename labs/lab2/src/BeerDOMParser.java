@@ -83,47 +83,47 @@ public class BeerDOMParser {
                                             else if (ingNode.getNodeName() == "aliveBeerIngridient"){
                                                 b.setAliveBeerIngridient(Integer.parseInt(ingContent));
                                             }
-                                        }
-                                    }
-                                }
-                            }
-                            break;
-                        case "chars":
-                            NodeList charsChildNodes = cNode.getChildNodes();
-                            for (int l = 0; l < charsChildNodes.getLength(); l++) {
-                                Node charsNode = charsChildNodes.item(l);
-                                if (charsNode instanceof Element) {
-                                    String charsContent = charsNode.getLastChild().getTextContent().trim();
-                                    switch (charsNode.getNodeName()) {
-                                        case "revolNumber":
-                                            ch.setRevolNumber(Integer.parseInt(charsContent));
-                                            break;
-                                        case "transparency":
-                                            ch.setTransparency(Integer.parseInt(charsContent));
-                                            break;
-                                        case "filtered":
-                                            ch.setFiltered(Boolean.parseBoolean(charsContent));
-                                            break;
-                                        case "nutritionalValue":
-                                            ch.setNutritionalValue(Integer.parseInt(charsContent));
-                                            break;
-                                        case "spillMethod":
-                                            NodeList spillMethodChildNodes = charsNode.getChildNodes();
-                                            for (int k = 0; k < spillMethodChildNodes.getLength(); k++) {
-                                                Node chars1Node = spillMethodChildNodes.item(k);
-                                                if (chars1Node instanceof Element) {
-                                                    String spillMethodContent = chars1Node.getLastChild().getTextContent().trim();
-                                                    switch (chars1Node.getNodeName()) {
-                                                        case "capacity":
-                                                            ch.setSpillMethodCapacity(Integer.parseInt(spillMethodContent));
-                                                            break;
-                                                        case "material":
-                                                            ch.setSpillMethodMaterial(spillMethodContent);
-                                                            break;
+                                            else if (ingNode.getNodeName() == "chars") {
+                                                NodeList charsChildNodes = ingNode.getChildNodes();
+                                                for (int s = 0; s < charsChildNodes.getLength(); s++) {
+                                                    Node charsNode = charsChildNodes.item(s);
+                                                    if (charsNode instanceof Element) {
+                                                        String charsContent = charsNode.getLastChild().getTextContent().trim();
+                                                        switch (charsNode.getNodeName()) {
+                                                            case "revolNumber":
+                                                                ch.setRevolNumber(Integer.parseInt(charsContent));
+                                                                break;
+                                                            case "transparency":
+                                                                ch.setTransparency(Integer.parseInt(charsContent));
+                                                                break;
+                                                            case "filtered":
+                                                                ch.setFiltered(Boolean.parseBoolean(charsContent));
+                                                                break;
+                                                            case "nutritionalValue":
+                                                                ch.setNutritionalValue(Integer.parseInt(charsContent));
+                                                                break;
+                                                            case "spillMethod":
+                                                                NodeList spillMethodChildNodes = charsNode.getChildNodes();
+                                                                for (int k = 0; k < spillMethodChildNodes.getLength(); k++) {
+                                                                    Node chars1Node = spillMethodChildNodes.item(k);
+                                                                    if (chars1Node instanceof Element) {
+                                                                        String spillMethodContent = chars1Node.getLastChild().getTextContent().trim();
+                                                                        switch (chars1Node.getNodeName()) {
+                                                                            case "capacity":
+                                                                                ch.setSpillMethodCapacity(Integer.parseInt(spillMethodContent));
+                                                                                break;
+                                                                            case "material":
+                                                                                ch.setSpillMethodMaterial(spillMethodContent);
+                                                                                break;
+                                                                        }
+                                                                    }
+                                                                }
+                                                                break;
+                                                        }
                                                     }
                                                 }
                                             }
-                                            break;
+                                        }
                                     }
                                 }
                             }
