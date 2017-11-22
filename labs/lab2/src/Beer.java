@@ -7,7 +7,7 @@ public class Beer {
     private String manufacturer;
     private ArrayList<String> ingridients;
     private Chars chars;
-    private int commonIngridient;
+    private Integer commonIngridient;
     private int darkBeerIngridient = 0;
     private int lightBeerIngridient = 0;
     private int campBeerIngridient = 0;
@@ -37,7 +37,7 @@ public class Beer {
         return chars;
     }
 
-    public int getCommonIngridient() {
+    public Integer getCommonIngridient() {
         return commonIngridient;
     }
 

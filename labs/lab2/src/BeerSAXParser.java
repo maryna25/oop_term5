@@ -13,6 +13,7 @@ public class BeerSAXParser {
         parser.parse("Beer.xml", handler);
 
         //Printing
+        handler.beerList.sort(new Sorting());
         for ( Beer b : handler.beerList){
             System.out.println(b);
         }

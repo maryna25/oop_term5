@@ -27,7 +27,7 @@
             <name id="ID-2">beer2</name>
             <type>
                 <dark>
-                    <commonIngridient>12</commonIngridient>
+                    <commonIngridient>10</commonIngridient>
                     <darkBeerIngridient>45</darkBeerIngridient>
                     <chars>
                         <revolNumber>10</revolNumber>
@@ -49,7 +49,7 @@
             <name id="ID-3">beer3</name>
             <type>
                 <dark>
-                    <commonIngridient>12</commonIngridient>
+                    <commonIngridient>15</commonIngridient>
                     <darkBeerIngridient>45</darkBeerIngridient>
                     <chars>
                         <transparency>50</transparency>
