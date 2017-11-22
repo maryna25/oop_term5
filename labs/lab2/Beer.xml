@@ -30,7 +30,7 @@
                     <commonIngridient>12</commonIngridient>
                     <darkBeerIngridient>45</darkBeerIngridient>
                     <chars>
-                        <revolNumber>30</revolNumber>
+                        <revolNumber>10</revolNumber>
                         <transparency>20</transparency>
                         <filtered>false</filtered>
                         <nutritionalValue>137</nutritionalValue>

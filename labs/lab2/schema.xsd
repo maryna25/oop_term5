@@ -57,7 +57,14 @@
 
     <xs:complexType name="darkCharsType">
         <xs:sequence>
-            <xs:element name = "revolNumber" type = "xs:positiveInteger" minOccurs="0" maxOccurs="1" />
+            <xs:element name = "revolNumber" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:positiveInteger">
+                        <xs:minInclusive value="10"/>
+                        <xs:maxInclusive value="20"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
             <xs:element name = "transparency" type = "xs:positiveInteger"/>
             <xs:element name = "filtered" type = "xs:boolean"/>
             <xs:element name = "nutritionalValue" type = "xs:positiveInteger"/>
