@@ -1,4 +1,6 @@
 import com.jme3.app.SimpleApplication;
+import com.jme3.bullet.BulletAppState;
+import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.cinematic.MotionPath;
 import com.jme3.cinematic.events.MotionEvent;
 import com.jme3.collision.CollisionResults;
@@ -22,7 +24,8 @@ import com.jme3.util.TangentBinormalGenerator;
 import com.jme3.water.SimpleWaterProcessor;
 
 public class Game extends SimpleApplication {
-
+    private BulletAppState bulletAppState;
+    private RigidBodyControl ship_phy;
     private Node mainNode;
     private Geometry water;
     protected Spatial torpedo;
@@ -49,6 +52,8 @@ public class Game extends SimpleApplication {
     @Override
     public void simpleInitApp() {
         //Initialize all components
+        bulletAppState = new BulletAppState();
+        stateManager.attach(bulletAppState);
         mainNode = new Node();
 
         DirectionalLight sun = new DirectionalLight();
@@ -62,6 +67,10 @@ public class Game extends SimpleApplication {
         water = createWater();
         shipInit();
         torpedoInit();
+
+        ship_phy = new RigidBodyControl(0f);
+        ship.addControl(ship_phy);
+        bulletAppState.getPhysicsSpace().add(ship_phy);
 
         mainNode.attachChild(ship);
         mainNode.attachChild(torpedo);
@@ -93,6 +102,9 @@ public class Game extends SimpleApplication {
                     ship.move(new Vector3f(shSpeed * shVector.x, 0.0f, shSpeed * shVector.z));
                 ship.rotate(new Quaternion().fromAngleAxis((float)(angle), Vector3f.UNIT_Y));
 
+                ship_phy.setPhysicsLocation(ship.getLocalTranslation());
+                ship_phy.setPhysicsRotation(ship.getWorldRotation());
+
                 //for moving torpedo
                 Vector2f nextPoint = new Vector2f(ship.getLocalTranslation().x - torpedo.getLocalTranslation().x,
                         ship.getLocalTranslation().z - torpedo.getLocalTranslation().z);
@@ -116,14 +128,14 @@ public class Game extends SimpleApplication {
     }
 
     private void shipInit(){
-        ship = assetManager.loadModel("Models/Ship/ship.obj");
+        ship = assetManager.loadModel("Models/Ship/Catamaran.obj");
         ship.setLocalTranslation(new Vector3f(-100f,20f,200f));
         Material mat_ship = new Material(
                 assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
         mat_ship.setTexture("ColorMap",
                 assetManager.loadTexture("Textures/ship.jpg"));
         ship.setMaterial(mat_ship);
-        ship.scale(0.1f);
+        ship.scale(0.01f);
         shVector = new Vector3f((float)(-1),0,(float)(0));
 
     }
@@ -204,17 +216,20 @@ public class Game extends SimpleApplication {
     }
 
     private boolean areCollided(){
+        // Calculate detection results
         CollisionResults results = new CollisionResults();
         torpedo.collideWith(ship.getWorldBound(), results);
-        if (results.size() > 0)
+
+        // Use the results
+        if (results.size() > 0) {
+            // how to react when a collision was detected
+            Tcontrol.stop();
+            flyCam.setEnabled(true);
+            flyCam.setMoveSpeed(100f);
             return true;
-        else
+        } else {
+            // how to react when no collision occured
             return false;
-//        if((torpedo.getLocalTranslation().x < ship.getLocalTranslation().x + 5) &&
-//           (torpedo.getLocalTranslation().x > ship.getLocalTranslation().x - 5) &&
-//           (torpedo.getLocalTranslation().z < ship.getLocalTranslation().z + 5) &&
-//           (torpedo.getLocalTranslation().z > ship.getLocalTranslation().z - 5))
-//                return true;
-//        return false;
+        }
     }
 }
